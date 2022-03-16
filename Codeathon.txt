@@ -1,0 +1,6 @@
+Requirements: (see Rubric for more)
+
+- needs GUI
+- needs chatbot
+- needs azure health
+- need LUIS (language)
