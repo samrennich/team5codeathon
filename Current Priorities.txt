@@ -1,3 +1,5 @@
-- brainstorm general ideas
-- determine main project focus
-- delegate starting tasks
+- single paragraph "problem" statement
+- determine "who" we are building the project for
+- contact NASA man (Manasi)
+- start discord for team 5! (manasi)
+- delegate initial tasks
