@@ -1,6 +1,6 @@
-"Technical term translator"
-- translates complex terms into basic language (with multiple language support) (#1)
-- pill scheduler (#2)
-- can scan prescription bottles and autofill schedule (#3)
-- works with JAWS well (#4)
-- visual pill identifier (#5)
+Title: Technical Term Translator
+
+- GUI presents the option to choose language, then presents a text field for input and a space for output
+- API handles the calls to the medical dictionary and returns the "translated" text
+- translation handles translating text from English to other languages (i.e. German, Spanish, etc.)
+- textToSpeech takes text and returns the audio file of it spoken
