@@ -1,0 +1,7 @@
+Sam's Response:
+
+Problem:
+Most medical terminology is inaccessible due to obscure vocabulary. This often makes is difficult for patients to understand their condition, issues, or medication that they have been prescribed.
+
+Solution:
+The "Technical Term Translator" works as a way to decipher complex medical terminology into layman's terms. This allows patients to easily translate, and better understand, what their prescription or doctor tells them.

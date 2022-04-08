@@ -1,0 +1,3 @@
+Sam's Response:
+
+This program would be targeted at all patients, but would be centered around the elderly. The GUI should be as simple and easy to use as possible, even if it means compromising some features. There should be as little barrier to use as possible.

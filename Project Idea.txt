@@ -1,6 +1,6 @@
 "Technical term translator"
-- translates complex terms into basic language (with mu;tiple language support) (#1)
-- visual pill identifier (#5)
+- translates complex terms into basic language (with multiple language support) (#1)
 - pill scheduler (#2)
+- can scan prescription bottles and autofill schedule (#3)
 - works with JAWS well (#4)
-- can scan perscription bottles and autofill schedule (#3)
+- visual pill identifier (#5)
