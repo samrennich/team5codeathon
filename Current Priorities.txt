@@ -1,4 +1,0 @@
-- single paragraph "problem" statement
-- determine "who" we are building the project for
-- contact NASA man (Manasi)
-- delegate initial tasks
