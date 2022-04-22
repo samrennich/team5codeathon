@@ -5,7 +5,6 @@ BASE_URL = "https://www.dictionaryapi.com/api/v3/references/medical/json/"
 CONNECTOR = "?key="
 KEY = "01c331d9-99cf-4959-a40c-25ac7a483539"
 GOOD_STATUS = 200
-MAX_ALTERNATES = 3
 
 def check(response):
     if response.status_code == GOOD_STATUS:
