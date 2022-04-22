@@ -6,12 +6,14 @@ CONNECTOR = "?key="
 KEY = "01c331d9-99cf-4959-a40c-25ac7a483539"
 GOOD_STATUS = 200
 
+# Checks if the API request was successful
 def check(response):
     if response.status_code == GOOD_STATUS:
         return True
     else:
         return False
 
+# Defines given word using API, uses alternative if word cannot be defined
 def definition_of(word):
     endpoint = BASE_URL + word + CONNECTOR + KEY
     response = requests.get(endpoint)
