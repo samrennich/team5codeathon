@@ -1,9 +1,14 @@
 import json
 import requests
 
-BASE_URL = "https://www.dictionaryapi.com/api/v3/references/medical/json/"
+DEFINITION_URL = "https://www.dictionaryapi.com/api/v3/references/medical/json/"
 CONNECTOR = "?key="
 KEY = "01c331d9-99cf-4959-a40c-25ac7a483539"
+LANG = "en"
+COUNTRY = "us"
+FORMAT = "mp3"
+AUDIO_TAGS = LANG + "/" + COUNTRY + "/" + FORMAT + "/"
+AUDIO_URL = "https://media.merriam-webster.com/audio/prons/" + AUDIO_TAGS
 GOOD_STATUS = 200
 
 # Checks if the API request was successful
@@ -13,9 +18,9 @@ def check(response):
     else:
         return False
 
-# Defines given word using API, uses alternative if word cannot be defined
+# Gives definition and audio of given word
 def definition_of(word):
-    endpoint = BASE_URL + word + CONNECTOR + KEY
+    endpoint = DEFINITION_URL + word + CONNECTOR + KEY
     response = requests.get(endpoint)
 
     if check(response):
@@ -23,15 +28,23 @@ def definition_of(word):
 
         try:
             definition = data[0]['shortdef'][0]
-            return definition
+            file = data[0]['hwi']['prs'][0]['sound']['audio']
+            audio_endpoint = AUDIO_URL + file[0] + "/" + file + "." + FORMAT
+            audio_response = requests.get(audio_endpoint)
+
+            if check(audio_response):
+                return (definition, audio_endpoint)
+            else:
+                return (definition, None)
         except:
             if bool(data):
                 result = "Unable to define \"" + word + "\". "
                 result += "Using \"" + data[0] + "\" instead.\n"
-                result += definition_of(data[0])
+                (new_def, audio_endpoint) = definition_of(data[0])
+                result += new_def
 
-                return result
+                return (result, audio_endpoint)
             else:
-                return "Unable to define the word. Please try another word."
+                return ("Unable to define the word.", None)
     else:
-        return "Unable to connect to dictionary server. Please try again later."
+        return ("Unable to connect to dictionary server.", None)
