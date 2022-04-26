@@ -4,3 +4,10 @@ Title: Technical Term Translator
 - API handles the calls to the medical dictionary and returns the "translated" text
 - translation handles translating text from English to other languages (i.e. German, Spanish, etc.)
 - textToSpeech takes text and returns the audio file of it spoken
+
+Requirements: (see Rubric for more)
+
+- needs GUI
+- needs chatbot
+- needs azure health
+- need LUIS (language)
