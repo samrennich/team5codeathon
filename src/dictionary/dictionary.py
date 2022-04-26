@@ -1,6 +1,6 @@
-import requests, json
-
 from constants import *
+
+import requests, json
 
 DEFINITION_URL = "https://www.dictionaryapi.com/api/v3/references/medical/json/"
 CONNECTOR = "?key="
