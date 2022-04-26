@@ -21,14 +21,14 @@ def get_language(text):
     return request.json()[0]['language']
 
 # Translate given text to given language
-def translate(text, target_language):
+def translate(text, lang):
     translation = ''
 
     url = ENDPOINT + TRANSLATE_PATH
     params = {
         'api-version': "3.0",
         'from': get_language(text),
-        'to': [target_language]
+        'to': [lang]
     }
     headers = {
         'Ocp-Apim-Subscription-Key': TRANSLATE_KEY,
