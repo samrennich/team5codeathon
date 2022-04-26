@@ -2,12 +2,19 @@ from constants import *
 
 import azure.cognitiveservices.speech as speech_sdk
 
+ENDPOINT = "\'http://www.w3.org/2001/10/synthesis\'"
+
 # Says given text
 def say(text):
     speech_config = speech_sdk.SpeechConfig(TEXT_TO_SPEECH_KEY, REGION)
-    speech_config.speech_synthesis_voice_name = "en-GB-LibbyNeural"
     speech_synthesizer = speech_sdk.SpeechSynthesizer(speech_config)
 
-    speak = speech_synthesizer.speak_text_async(text).get()
-    if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
-        print(speak.reason)
+    responseSsml = " \
+        <speak version='1.0' xmlns=" + ENDPOINT + " xml:lang='en-US'> \
+            <voice name='en-GB-LibbyNeural'> \
+                {} \
+                <break strength='weak'/> \
+            </voice> \
+        </speak>".format(text)
+
+    speak = speech_synthesizer.speak_ssml_async(responseSsml).get()
