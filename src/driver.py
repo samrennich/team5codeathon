@@ -1,6 +1,6 @@
 from email.mime import audio
-from api.medical_dictionary import *
-from translation.translate import *
+from dictionary.dictionary import *
+from translate.translate import *
 import vlc
 
 # p = vlc.MediaPlayer(audio_of("ibuprofen"))
