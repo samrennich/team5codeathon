@@ -1,14 +1,9 @@
-from email.mime import audio
+from constants import *
+
 from dictionary.dictionary import *
 from translate.translate import *
-import vlc
+from text_to_speech.text_to_speech import *
 
-# p = vlc.MediaPlayer(audio_of("ibuprofen"))
-# p.play()
+(text, audio) = define("Ibuprofen")
 
-# (defintion, audio_endpoint) = definition_of("ibuproffen")
-
-# print(defintion)
-# print(audio_endpoint)
-
-print(translate("Hello", 'fr'))
+say(translate(text, "fr"))

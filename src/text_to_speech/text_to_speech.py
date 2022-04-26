@@ -1,5 +1,5 @@
 from constants import *
-from translate.translate import *
+from translate.translate import get_language
 
 import azure.cognitiveservices.speech as speech_sdk
 
