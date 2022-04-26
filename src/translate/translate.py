@@ -1,6 +1,6 @@
-import requests, json
-
 from constants import *
+
+import requests, json
 
 ENDPOINT = "https://api.cognitive.microsofttranslator.com"
 DETECT_PATH = "/detect"
