@@ -18,7 +18,7 @@ def correct_lang(text):
     return translate(text, LANG_SHORT[language.get()])
 
 def translate_term():
-	translated_label_text.set(correct_lang(define(term_input.get())))
+	translated_label_text.set(correct_lang(define(translate(term_input.get(), LANG))))
 
 def pronounce_word():
 	pronounce(term_input.get())
