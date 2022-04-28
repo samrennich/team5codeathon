@@ -31,20 +31,21 @@ def define(word):
 
 # Says the word with the proper pronunciation
 def pronounce(word):
-    endpoint = DEFINITION_URL + word + CONNECTOR + MEDICAL_KEY
-    data = requests.get(endpoint).json()
+    if word != "":
+        endpoint = DEFINITION_URL + word + CONNECTOR + MEDICAL_KEY
+        data = requests.get(endpoint).json()
 
-    try:
-        file = data[0]['hwi']['prs'][0]['sound']['audio']
-        sound = requests.get(AUDIO_URL + file[0] + "/" + file + "." + FORMAT)
-        with open("temp.mp3", "wb") as f:
-            f.write(sound.content)
+        try:
+            file = data[0]['hwi']['prs'][0]['sound']['audio']
+            sound = requests.get(AUDIO_URL + file[0] + "/" + file + "." + FORMAT)
+            with open("temp.mp3", "wb") as f:
+                f.write(sound.content)
 
-        playsound.playsound("temp.mp3")
+            playsound.playsound("temp.mp3")
 
-        os.remove("temp.mp3")
-    except:
-        if bool(data):
-            pronounce(data[0])
-        else:
-            say("No pronunciation available for this word.")
+            os.remove("temp.mp3")
+        except:
+            if bool(data):
+                pronounce(data[0])
+            else:
+                say("No pronunciation available for this word.")
