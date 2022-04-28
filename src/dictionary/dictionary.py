@@ -1,6 +1,6 @@
 from constants import *
 
-from text_to_speech.text_to_speech import *
+from text_to_speech.text_to_speech import say
 
 import requests, json
 import playsound
