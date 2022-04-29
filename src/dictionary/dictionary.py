@@ -14,20 +14,23 @@ AUDIO_URL = "https://media.merriam-webster.com/audio/prons/" + AUDIO_TAGS
 
 # Gives definition of given word
 def define(word):
-    endpoint = DEFINITION_URL + word + CONNECTOR + MEDICAL_KEY
-    data = requests.get(endpoint).json()
+    if word != "":
+        endpoint = DEFINITION_URL + word + CONNECTOR + MEDICAL_KEY
+        data = requests.get(endpoint).json()
 
-    try:
-        return data[0]['shortdef'][0]
-    except:
-        if bool(data):
-            result = "Unable to define \"" + word + "\". "
-            result += "Using \"" + data[0] + "\" instead.\n"
-            result += define(data[0])
+        try:
+            return data[0]['shortdef'][0]
+        except:
+            if bool(data):
+                result = "Unable to define \"" + word + "\". "
+                result += "Using \"" + data[0] + "\" instead.\n"
+                result += define(data[0])
 
-            return result
-        else:
-            return "No definition available for this word."
+                return result
+            else:
+                return "No definition available for this word."
+    else:
+        return ""
 
 # Says the word with the proper pronunciation
 def pronounce(word):
